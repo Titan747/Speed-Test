@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SpeedTickets.Models.tblLocation>
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Locations</h2>
+
+<td>@Html.ActionLink("Add Location", "AddLocation", "Locations", new { @class = "btn btn-info" })</td>
+
+<hr />
+
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Location Id</th>
+			<th>Location</th>
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+		<tr>
+			<td>@Html.DisplayFor(obj => item.LocationId)</td>
+			<td>@Html.DisplayFor(obj => item.Location)</td>
+			<td>@Html.ActionLink("Update", "UpdateLocation",new { locationId = item.LocationId }, new { @class = "btn btn-primary" })</td>
+			<td>@Html.ActionLink("Delete", "DeleteLocation", new { locationId = item.LocationId }, new { @class = "btn btn-danger" })</td>
+		</tr>
+		}
+	</tbody>
+</table>

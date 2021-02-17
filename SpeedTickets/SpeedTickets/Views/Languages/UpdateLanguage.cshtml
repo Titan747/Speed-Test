@@ -1,0 +1,30 @@
+﻿@model SpeedTickets.Models.tblLanguage
+@{
+	ViewBag.Title = "UpdateLanguage";
+}
+
+<h2>Edit Language</h2>
+
+<div style="font-weight:bold">Click to @Html.ActionLink("Show Languages", "Index", "Languages")</div>
+<br />
+@using (Html.BeginForm())
+{
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<table class="table table-hover">
+					<tr>
+						<td><label>Language Id</label></td>
+						<td>@Html.TextBoxFor(obj => obj.LanguageId)</td>
+					</tr>
+					<tr>
+						<td><label>Language</label></td>
+						<td>@Html.TextBoxFor(obj => obj.Language)</td>
+					</tr>
+				</table>
+			</div>
+			<input type="submit" name="name" value="Update Language" class="btn btn-success" />
+			<input type="reset" name="name" value="Reset" class="btn btn-default" />
+		</div>
+	</div>
+}

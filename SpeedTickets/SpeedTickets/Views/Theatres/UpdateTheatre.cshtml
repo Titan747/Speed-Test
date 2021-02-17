@@ -1,0 +1,42 @@
+﻿@model SpeedTickets.Models.tblTheater
+@{
+	ViewBag.Title = "UpdateTheatre";
+}
+
+<h2>Edit Theatre</h2>
+
+<div style="font-weight:bold">Click to @Html.ActionLink("Show Theatres", "Index", "Theatres")</div>
+<br />
+@using (Html.BeginForm())
+{
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<table class="table table-hover">
+					<tr>
+						<td><label>Theater Id</label></td>
+						<td>@Html.TextBoxFor(obj => obj.TheaterId)</td>
+					</tr>
+					<tr>
+						<td><label>Theater</label></td>
+						<td>@Html.TextBoxFor(obj => obj.Theater)</td>
+					</tr>
+					<tr>
+						<td><label>Theater Type</label></td>
+						<td>@Html.TextBoxFor(obj => obj.TheaterType)</td>
+					</tr>
+					<tr>
+						<td><label>Comments</label></td>
+						<td>@Html.TextBoxFor(obj => obj.Comments)</td>
+					</tr>
+					<tr>
+						<td><label>Location Id</label></td>
+						<td>@Html.TextBoxFor(obj => obj.LocationId)</td>
+					</tr>
+				</table>
+			</div>
+			<input type="submit" name="name" value="Update Theater" class="btn btn-success" />
+			<input type="reset" name="name" value="Reset" class="btn btn-default" />
+		</div>
+	</div>
+}

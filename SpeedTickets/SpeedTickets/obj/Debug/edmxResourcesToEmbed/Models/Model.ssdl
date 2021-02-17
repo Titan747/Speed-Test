@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MovieBookingDetailsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblLanguages">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Language" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblLocations">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblMovies">
+    <Key>
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="MovieId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Movie" Type="varchar" MaxLength="200" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="MovieType" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="tblTheaters">
+    <Key>
+      <PropertyRef Name="TheaterId" />
+    </Key>
+    <Property Name="TheaterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Theater" Type="varchar" MaxLength="200" />
+    <Property Name="TheaterType" Type="varchar" MaxLength="100" />
+    <Property Name="Comments" Type="varchar(max)" />
+    <Property Name="LocationId" Type="int" />
+  </EntityType>
+  <Association Name="FK__tblTheate__Locat__300424B4">
+    <End Role="tblLocations" Type="Self.tblLocations" Multiplicity="0..1" />
+    <End Role="tblTheaters" Type="Self.tblTheaters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLocations">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="tblTheaters">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MovieBookingDetailsModelStoreContainer">
+    <EntitySet Name="tblLanguages" EntityType="Self.tblLanguages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLocations" EntityType="Self.tblLocations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMovies" EntityType="Self.tblMovies" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTheaters" EntityType="Self.tblTheaters" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblTheate__Locat__300424B4" Association="Self.FK__tblTheate__Locat__300424B4">
+      <End Role="tblLocations" EntitySet="tblLocations" />
+      <End Role="tblTheaters" EntitySet="tblTheaters" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,38 @@
+﻿@model SpeedTickets.Models.tblMovy
+@{
+	ViewBag.Title = "UpdateMovie";
+}
+
+<h2>Edit Movie</h2>
+
+<div style="font-weight:bold">Click to @Html.ActionLink("Show Movies", "Index", "Movies")</div>
+<br />
+@using (Html.BeginForm())
+{
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<table class="table table-hover">
+					<tr>
+						<td><label>Movie Id</label></td>
+						<td>@Html.TextBoxFor(obj => obj.MovieId)</td>
+					</tr>
+					<tr>
+						<td><label>Movie</label></td>
+						<td>@Html.TextBoxFor(obj => obj.Movie)</td>
+					</tr>
+					<tr>
+						<td><label>Description</label></td>
+						<td>@Html.TextBoxFor(obj => obj.Description)</td>
+					</tr>
+					<tr>
+						<td><label>Movie Type</label></td>
+						<td>@Html.TextBoxFor(obj => obj.MovieType)</td>
+					</tr>
+				</table>		
+			</div>
+			<input type="submit" name="name" value="Update Movie" class="btn btn-success" />
+			<input type="reset" name="name" value="Reset" class="btn btn-default" />
+		</div>
+	</div>
+}

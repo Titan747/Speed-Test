@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SpeedTickets.Models.tblLanguage>
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Languages</h2>
+
+<td>@Html.ActionLink("Add Language", "AddLanguage", "Languages", new { @class = "btn btn-info" })</td>
+
+<hr />
+
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Language Id</th>
+			<th>Language</th>
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@Html.DisplayFor(obj => item.LanguageId)</td>
+				<td>@Html.DisplayFor(obj => item.Language)</td>
+				<td>@Html.ActionLink("Update", "UpdateLanguage", new { languageId = item.LanguageId }, new { @class = "btn btn-primary" })</td>
+				<td>@Html.ActionLink("Delete", "DeleteLanguage", new { languageId = item.LanguageId }, new { @class = "btn btn-danger" })</td>
+			</tr>
+		}
+	</tbody>
+</table>

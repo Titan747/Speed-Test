@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MovieBookingDetailsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblLocation">
+    <Key>
+      <PropertyRef Name="LocationId" />
+    </Key>
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblTheaters" Relationship="MovieBookingDetailsModel.FK__tblTheate__Locat__300424B4" FromRole="tblLocation" ToRole="tblTheater" />
+  </EntityType>
+  <EntityType Name="tblMovy">
+    <Key>
+      <PropertyRef Name="MovieId" />
+    </Key>
+    <Property Name="MovieId" Type="Int32" Nullable="false" />
+    <Property Name="Movie" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MovieType" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblTheater">
+    <Key>
+      <PropertyRef Name="TheaterId" />
+    </Key>
+    <Property Name="TheaterId" Type="Int32" Nullable="false" />
+    <Property Name="Theater" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TheaterType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LocationId" Type="Int32" />
+    <NavigationProperty Name="tblLocation" Relationship="MovieBookingDetailsModel.FK__tblTheate__Locat__300424B4" FromRole="tblTheater" ToRole="tblLocation" />
+  </EntityType>
+  <EntityContainer Name="MovieBookingDetailsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblLocations" EntityType="Self.tblLocation" />
+    <EntitySet Name="tblMovies" EntityType="Self.tblMovy" />
+    <EntitySet Name="tblTheaters" EntityType="Self.tblTheater" />
+    <AssociationSet Name="FK__tblTheate__Locat__300424B4" Association="MovieBookingDetailsModel.FK__tblTheate__Locat__300424B4">
+      <End Role="tblLocation" EntitySet="tblLocations" />
+      <End Role="tblTheater" EntitySet="tblTheaters" />
+    </AssociationSet>
+    <EntitySet Name="tblLanguages" EntityType="MovieBookingDetailsModel.tblLanguage" />
+  </EntityContainer>
+  <Association Name="FK__tblTheate__Locat__300424B4">
+    <End Type="MovieBookingDetailsModel.tblLocation" Role="tblLocation" Multiplicity="0..1" />
+    <End Type="MovieBookingDetailsModel.tblTheater" Role="tblTheater" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblLocation">
+        <PropertyRef Name="LocationId" />
+      </Principal>
+      <Dependent Role="tblTheater">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblLanguage">
+    <Key>
+      <PropertyRef Name="LanguageId" />
+    </Key>
+    <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Language" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

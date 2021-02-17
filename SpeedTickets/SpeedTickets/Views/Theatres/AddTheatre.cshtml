@@ -1,0 +1,43 @@
+﻿@model SpeedTickets.Models.tblTheater
+
+@{
+	ViewBag.Title = "AddTheatre";
+}
+
+<h2 style="font-weight:bold">Add Theatre</h2>
+
+<hr />
+
+<div style="font-weight:bold">@Html.ActionLink("View Theatres", "Index", "Theatres", new { @class = "btn btn-info" })</div>
+
+<br />
+
+@using (Html.BeginForm())
+{
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<table class="table table-hover">
+					<tr>
+						<td><label>Theatre</label></td>
+						<td>@Html.TextBoxFor(obj => obj.Theater)</td>
+					</tr>
+					<tr>
+						<td><label>Theatre Type</label></td>
+						<td>@Html.TextBoxFor(obj => obj.TheaterType)</td>
+					</tr>
+					<tr>
+						<td><label>Theatre Comments</label></td>
+						<td>@Html.TextBoxFor(obj => obj.Comments)</td>
+					</tr>
+					<tr>
+						<td><label>Location Id</label></td>
+						<td>@Html.TextBoxFor(obj => obj.LocationId)</td>
+					</tr>
+				</table>
+			</div>
+			<input type="submit" name="name" value="Save Theatre" class="btn btn-success" />&ensp;
+			<input type="button" name="name" value="Reset" class="btn btn-primary" />
+		</div>
+	</div>
+}

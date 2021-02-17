@@ -1,0 +1,30 @@
+﻿@model SpeedTickets.Models.tblLocation
+@{
+	ViewBag.Title = "UpdateLocation";
+}
+
+<h2>Edit Location</h2>
+
+<div style="font-weight:bold">Click to @Html.ActionLink("Show Locations", "Index", "Locations")</div>
+<br />
+@using (Html.BeginForm())
+{
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<table class="table table-hover">
+					<tr>
+						<td><label>Location Id</label></td>
+						<td>@Html.TextBoxFor(obj => obj.LocationId)</td>
+					</tr>
+					<tr>
+						<td><label>Location</label></td>
+						<td>@Html.TextBoxFor(obj => obj.Location)</td>
+					</tr>
+				</table>	
+			</div>
+			<input type="submit" name="name" value="Update Location" class="btn btn-success" />
+			<input type="reset" name="name" value="Reset" class="btn btn-default" />
+		</div>
+	</div>
+}

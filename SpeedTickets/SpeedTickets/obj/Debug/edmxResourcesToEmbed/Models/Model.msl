@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MovieBookingDetailsModelStoreContainer" CdmEntityContainer="MovieBookingDetailsEntities">
+    <EntitySetMapping Name="tblLocations">
+      <EntityTypeMapping TypeName="MovieBookingDetailsModel.tblLocation">
+        <MappingFragment StoreEntitySet="tblLocations">
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMovies">
+      <EntityTypeMapping TypeName="MovieBookingDetailsModel.tblMovy">
+        <MappingFragment StoreEntitySet="tblMovies">
+          <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+          <ScalarProperty Name="Movie" ColumnName="Movie" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MovieType" ColumnName="MovieType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTheaters">
+      <EntityTypeMapping TypeName="MovieBookingDetailsModel.tblTheater">
+        <MappingFragment StoreEntitySet="tblTheaters">
+          <ScalarProperty Name="TheaterId" ColumnName="TheaterId" />
+          <ScalarProperty Name="Theater" ColumnName="Theater" />
+          <ScalarProperty Name="TheaterType" ColumnName="TheaterType" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLanguages">
+      <EntityTypeMapping TypeName="MovieBookingDetailsModel.tblLanguage">
+        <MappingFragment StoreEntitySet="tblLanguages">
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

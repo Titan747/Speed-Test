@@ -1,0 +1,36 @@
+﻿@model IEnumerable<SpeedTickets.Models.tblMovy>
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Movies</h2>
+
+<td>@Html.ActionLink("Add Movie", "AddMovie", "Movies", new { @class = "btn btn-info" })</td>
+
+<hr />
+
+<table class="table table-bordered table-hover">
+	<thead>
+		<tr>
+			<th>Movie Id</th>
+			<th>Movie</th>
+			<th>Description</th>
+			<th>Movie Type</th>
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+		<tr>
+			<td>@Html.DisplayFor(obj => item.MovieId)</td>
+			<td>@Html.DisplayFor(obj => item.Movie)</td>
+			<td>@Html.DisplayFor(obj => item.Description)</td>
+			<td>@Html.DisplayFor(obj => item.MovieType)</td>
+			<td>@Html.ActionLink("Update", "UpdateMovie", new { id = item.MovieId }, new { @class = "btn btn-primary" })</td>
+			<td>@Html.ActionLink("Delete", "DeleteMovie", new { id = item.MovieId }, new { @class = "btn btn-danger" })</td>
+		</tr>
+		}
+	</tbody>
+</table>
